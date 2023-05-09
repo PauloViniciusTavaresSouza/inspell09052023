@@ -27,8 +27,9 @@ interface Props {
   hidden: boolean
 }
 
-const AppBarContent = (props: Props) => {
+const AppBarContent = (props: Props, themeConfig: Theme) => {
   const { settings, saveSettings } = props
+  const { mode } = settings
 
   const hiddenMd = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'))
 
@@ -39,14 +40,14 @@ const AppBarContent = (props: Props) => {
   return (
     <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
       <Box className='actions-left' sx={{ mr: 2, display: 'flex', alignItems: 'center' }}>
-        <Typography variant={'h5'}>iGateway Dashboard</Typography>
+        {mode == "light" ? <img src="/images/pages/logoAzul.png" alt="Logo" /> : <img src="/images/pages/logoBranca.png" alt="Logo" /> }
       </Box>
       <Box className='actions-right' sx={{ display: 'flex', alignItems: 'center' }}>
         {!hiddenMd && <Tooltip title='CNPJ/CPF da conta' arrow>
           <Box marginRight='20px' sx={{ display: 'flex', alignItems: 'center' }}>
             <>
               {cnpjCpf && (
-                <Typography sx={{ fontWeight: 600, fontSize: '1.2rem !important' }}>
+                <Typography variant='p' sx={{ fontWeight: 600, fontSize: '1.2rem !important' }}>
                   {cnpjCpf.length > 12 ? 'CNPJ: ' + cnpj(cnpjCpf) : 'CPF: ' + cpf(cnpjCpf)}
                 </Typography>
               )}
@@ -63,7 +64,7 @@ const AppBarContent = (props: Props) => {
         </Tooltip>
         <Tooltip title={logsOn ? 'DashBoard' : 'Logs'} arrow>
           <IconButton
-            color='inherit'
+            color='secondary'
             aria-haspopup='true'
             onClick={() => {
               changeView()
@@ -78,7 +79,7 @@ const AppBarContent = (props: Props) => {
           </IconButton>
         </Tooltip>
         <Tooltip title={statusIgateway == 'RUN' ? 'Pausar iGateway' : 'Rodar iGateway'} arrow>
-          <IconButton color='inherit' aria-haspopup='true' onClick={playPause}>
+          <IconButton color='secondary' aria-haspopup='true' onClick={playPause}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>{statusIgateway == 'RUN' ? <Pause /> : <Play />}</Box>
           </IconButton>
         </Tooltip>

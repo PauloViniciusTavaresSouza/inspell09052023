@@ -26,7 +26,7 @@ const Typography = (theme: Theme) => {
     h5: {
       fontWeight: 500,
       letterSpacing: 0,
-      color: theme.palette.text.primary
+      color: theme.palette.text.AzulBranca
     },
     h6: {
       letterSpacing: '0.15px',
@@ -60,6 +60,11 @@ const Typography = (theme: Theme) => {
     overline: {
       letterSpacing: '1px',
       color: theme.palette.text.secondary
+    },
+    p: {
+      fontWeight: 500,
+      letterSpacing: '1px',
+      color: theme.palette.text.AzulBranca
     }
   }
 }

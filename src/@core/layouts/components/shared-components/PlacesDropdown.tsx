@@ -112,13 +112,13 @@ const PlacesDropdown = (props:any) => {
       <Tooltip  title={places.length==0 ? 'Nenhum local cadastrado' : 'Local do iGateway'} arrow>
         <span>
         <IconButton
-          color='primary'
+          color='secondary'
           aria-haspopup='true'
           onClick={handleDropdownOpen}
           aria-controls='customized-menu'
           disabled={places.length==0}
         >
-          <MapMarkerOutline />
+          <MapMarkerOutline color='secondary' />
           <Typography sx={{ fontWeight: 600, fontSize: '1.2rem !important' }}>
                 {getPlace()}
           </Typography>

@@ -1,0 +1,7 @@
+@core -> Layout -> VerticalLayout.tsx {
+  eu mudei o max-width de "1440px" para "1366px"
+}
+
+@core -> Layout -> components -> vertica AppBar {
+eu mudei o max-width de "1440px" para "1366px"
+} 
