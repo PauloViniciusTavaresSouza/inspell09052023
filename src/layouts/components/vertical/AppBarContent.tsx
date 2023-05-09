@@ -64,7 +64,7 @@ const AppBarContent = (props: Props, themeConfig: Theme) => {
         </Tooltip>
         <Tooltip title={logsOn ? 'DashBoard' : 'Logs'} arrow>
           <IconButton
-            color='secondary'
+            color='tertiary'
             aria-haspopup='true'
             onClick={() => {
               changeView()
@@ -79,7 +79,7 @@ const AppBarContent = (props: Props, themeConfig: Theme) => {
           </IconButton>
         </Tooltip>
         <Tooltip title={statusIgateway == 'RUN' ? 'Pausar iGateway' : 'Rodar iGateway'} arrow>
-          <IconButton color='secondary' aria-haspopup='true' onClick={playPause}>
+          <IconButton color='tertiary' aria-haspopup='true' onClick={playPause}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>{statusIgateway == 'RUN' ? <Pause /> : <Play />}</Box>
           </IconButton>
         </Tooltip>

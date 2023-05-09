@@ -86,8 +86,9 @@ const WeeklyOverview = (props:any) => {
 
     fill: { type: chartData.map((i: any) => i.fill) },
     labels: chartLabels,
+  
     xaxis: {
-      type: 'category'
+      type: 'category',
     },
     tooltip: {
       shared: true,
@@ -107,10 +108,10 @@ const WeeklyOverview = (props:any) => {
     chart: {
       toolbar: { show: false },
       zoom: { enabled: false },
-
       animations: { enabled: false },
       foreColor: theme.palette.text.disabled,
-      fontFamily: theme.typography.fontFamily
+      fontFamily: theme.typography.fontFamily,
+      
     },
 
     // States
@@ -153,7 +154,7 @@ const WeeklyOverview = (props:any) => {
     // Markers
     markers: {
       size: 0,
-      strokeColors: theme.palette.background.paper
+      strokeColors: theme.palette.background.paper,
     },
 
     // Legend

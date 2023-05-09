@@ -57,21 +57,18 @@ const themeOptions = (settings: Settings): ThemeOptions => {
       primary: {
         ...themeConfig.palette[themeColor],
         main: '#9155FD',
-      // dark: será calculada com base em palette.primary.main,
-      // contrastText: será calculada para contrastar com palette.primary.main
     },
     secondary: {
       light: '#0066ff',
-      main: mode == "light" ? '#2F4361' : "#D0CCE5",
-      // dark: será calculada com base palette.secondary.main,
+      main: "#8A8D93",
+
       contrastText: '#ffcc00',
     },
-    // secondary: {
-    //   light: '#0066ff',
-    //   main: '#0044ff',
-    //   // dark: será calculada com base palette.secondary.main,
-    //   contrastText: '#ffcc00',
-    // },
+    tertiary: {
+      light: '#0066ff',
+      main: mode == "light" ? '#2F4361' : "#D0CCE5",
+
+    },
     warning: {
       main: "#FFB400",
     },
