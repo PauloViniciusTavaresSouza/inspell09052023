@@ -1,7 +1,10 @@
 // ** MUI Imports
 import { Theme } from '@mui/material/styles'
+import { Settings } from 'src/@core/context/settingsContext'
 
 const Card = (theme: Theme) => {
+const mode = theme.palette.mode
+  console.log(theme.palette.mode)
   return {
     MuiCard: {
       styleOverrides: {
@@ -17,7 +20,8 @@ const Card = (theme: Theme) => {
     MuiCardHeader: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(5),
+          background: mode == "light" ? "#2F4361" : "#fff",
+          padding: theme.spacing(1),
           '& + .MuiCardContent-root, & + .MuiCollapse-root .MuiCardContent-root': {
             paddingTop: 0
           },
@@ -29,7 +33,9 @@ const Card = (theme: Theme) => {
           lineHeight: 1,
           fontWeight: 500,
           fontSize: '1.25rem',
-          letterSpacing: '0.0125em'
+          letterSpacing: '0.0125em',
+          padding: '5px 5px 5px 20px',
+          color: mode == "light" ? "#fff" : "#2F4361",
         },
         action: {
           marginTop: 0,

@@ -55,7 +55,13 @@ export const login = async (acessKey: string, cnpjCpf: string, igatewayPort:stri
 export const getInfoIgateway = async (igatewayPort:string) => {
   try {
     // Retirado para uso no teste de Dev Frontend
-    //const ret = await iGateway.get('http://' + window.location.hostname + ':' + igatewayPort)
+    // const ret = await iGateway.get('http://' + window.location.hostname + ':' + igatewayPort)
+
+// DESCOMENTAR PARA IR À PAGINA DE LOGIN
+    // const ret = {
+    //  status :  200,
+    //  data : {"cnpjCpf":null,"placeId":"ALL","places":[],"statusServidorIPT":"OFFLINE","versionIgateway":"Beta 0.0.02","statusIgateway":"UNLINKED","failsOnDay":0,"terminals":[],"marksLastDays":{"dates":["20/04","21/04","22/04","23/04","24/04","25/04","26/04"]},"totalPedestrians":0}
+    // } 
 
     // Resposta fixa para teste Dev Frontend
     const ret = {

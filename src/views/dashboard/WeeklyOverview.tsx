@@ -193,8 +193,8 @@ const WeeklyOverview = (props:any) => {
   }
 
   return (
-    <Card>
-      <CardHeader
+    <Card >
+      <CardHeader 
         title='Marcações nos últimos 7 dias'
         sx = {{pb: '0px'}}
         titleTypographyProps={{
