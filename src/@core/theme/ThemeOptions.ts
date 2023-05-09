@@ -89,6 +89,7 @@ const themeOptions = (settings: Settings): ThemeOptions => {
       default: "#f7f6f3"
     },
     grey: {
+     
       50: '#FAFAFA',
       100: '#F5F5F5',
       200: '#EEEEEE',
@@ -96,7 +97,7 @@ const themeOptions = (settings: Settings): ThemeOptions => {
       400: '#BDBDBD',
       500: '#9E9E9E',
       600: '#757575',
-      700: '#616161',
+      700: '#524E59',
       800: '#424242',
       900: '#212121',
       A100: '#D5D5D5',

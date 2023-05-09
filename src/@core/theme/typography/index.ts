@@ -30,7 +30,7 @@ const Typography = (theme: Theme) => {
     },
     h6: {
       letterSpacing: '0.15px',
-      color: theme.palette.text.primary
+      color: theme.palette.grey[700]
     },
     subtitle1: {
       letterSpacing: '0.15px',
@@ -55,7 +55,7 @@ const Typography = (theme: Theme) => {
     },
     caption: {
       letterSpacing: '0.4px',
-      color: theme.palette.text.secondary
+      color: theme.palette.grey[700]
     },
     overline: {
       letterSpacing: '1px',
