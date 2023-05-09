@@ -4,7 +4,6 @@ import { Settings } from 'src/@core/context/settingsContext'
 
 const Card = (theme: Theme) => {
 const mode = theme.palette.mode
-  console.log(theme.palette.mode)
   return {
     MuiCard: {
       styleOverrides: {

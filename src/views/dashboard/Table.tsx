@@ -69,13 +69,13 @@ const DashboardTable = (props:any) => {
             {rows.map((row: RowType) => {
               if (!['ONLINE','ERRO','ERRO_SENHA','ERRO_NS'].includes(row.STATUS)) row.STATUS='DESCONHECIDO';
               return (
-                <TableRow hover key={row.CODTERMINAL} sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}>
+                <TableRow hover key={row.CODTERMINAL} sx={{ '&:last-of-type td, &:last-of-type th': { border: 0} }}>
                   <TableCell align='center'>{row.CODTERMINAL}</TableCell>
                   <TableCell>{row.DESCRICAO}</TableCell>
                   <TableCell sx={{ py: theme => `${theme.spacing(0.5)} !important` }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                       <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>{row.MODELOTERMINAL}</Typography>
-                      <Typography variant='caption'>{row.MARCATERMINAL}</Typography>
+                      <Typography variant='span'>{row.MARCATERMINAL}</Typography>
                     </Box>
                   </TableCell>
                   <TableCell align='center'>{row.ENDERECOIP}</TableCell>

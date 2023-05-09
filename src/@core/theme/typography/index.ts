@@ -1,7 +1,10 @@
 // ** Theme Type Import
 import { Theme } from '@mui/material/styles'
+import { Settings } from 'src/@core/context/settingsContext'
 
 const Typography = (theme: Theme) => {
+  const mode = theme.palette.mode
+
   return {
     h1: {
       fontWeight: 500,
@@ -30,7 +33,7 @@ const Typography = (theme: Theme) => {
     },
     h6: {
       letterSpacing: '0.15px',
-      color: theme.palette.grey[700]
+      color: mode === "light" ? theme.palette.grey[700] : "#CAC6E0",
     },
     subtitle1: {
       letterSpacing: '0.15px',
@@ -55,7 +58,8 @@ const Typography = (theme: Theme) => {
     },
     caption: {
       letterSpacing: '0.4px',
-      color: theme.palette.grey[700]
+      color: mode === "light" ? theme.palette.grey[700] : "#CAC6E0",
+
     },
     overline: {
       letterSpacing: '1px',
@@ -65,6 +69,12 @@ const Typography = (theme: Theme) => {
       fontWeight: 500,
       letterSpacing: '1px',
       color: theme.palette.text.AzulBranca
+    },
+    span: {
+      fontWeight: 500,
+      letterSpacing: '1px',
+      color: mode === "light" ? theme.palette.grey[700] : "#CAC6E0",
+      fontSize: "10px",
     }
   }
 }
