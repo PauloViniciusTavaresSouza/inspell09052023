@@ -2,6 +2,7 @@
 import { Theme } from '@mui/material/styles'
 
 const Table = (theme: Theme) => {
+  const mode = theme.palette.mode
   return {
     MuiTableContainer: {
       styleOverrides: {
@@ -28,7 +29,7 @@ const Table = (theme: Theme) => {
         root: {
           '& .MuiTableCell-body': {
             letterSpacing: '0.25px',
-            color: theme.palette.text.secondary,
+            color: mode == 'light' ? '#3A4E6E' : "#C9C5DE",
             '&:not(.MuiTableCell-sizeSmall):not(.MuiTableCell-paddingCheckbox):not(.MuiTableCell-paddingNone)': {
               paddingTop: theme.spacing(3.5),
               paddingBottom: theme.spacing(3.5)
@@ -41,7 +42,7 @@ const Table = (theme: Theme) => {
       styleOverrides: {
         root: {
           '& .MuiTableCell-head:first-type, & .MuiTableCell-root:first-type ': {
-            paddingLeft: theme.spacing(5)
+            paddingLeft: theme.spacing(5),
           },
           '& .MuiTableCell-head:last-type, & .MuiTableCell-root:last-type': {
             paddingRight: theme.spacing(5)
@@ -55,11 +56,17 @@ const Table = (theme: Theme) => {
           borderBottom: `1px solid ${theme.palette.divider}`,
           '& .MuiButton-root': {
             textTransform: 'uppercase',
-            color: theme.palette.text.secondary
+            // color: theme.palette.text.secondary
           }
         },
         stickyHeader: {
-          backgroundColor: theme.palette.customColors.tableHeaderBg
+          padding: theme.spacing(4),
+          backgroundColor: 'theme.palette.customColors.tableHeaderBg'
+        },
+        head: {
+          // color:"blue"
+        },
+        body: {
         }
       }
     }

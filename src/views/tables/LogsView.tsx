@@ -103,7 +103,7 @@ const LogsView = () => {
           <TableHead>
             <TableRow>
               {columns.map(column => (
-                <TableCell key={column.id} align={column.align} sx={{ minWidth: column.minWidth }}>
+                <TableCell  key={column.id} align={column.align} sx={{ minWidth: column.minWidth }}>
                   {column.label}
                 </TableCell>
               ))}
@@ -112,12 +112,12 @@ const LogsView = () => {
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
               return (
-                <TableRow hover role='checkbox' tabIndex={-1} key={row.id}>
+                <TableRow  hover role='checkbox' tabIndex={-1} key={row.id}>
                   {columns.map(column => {
                     const value = row[column.id]
 
                     return (
-                      <TableCell key={column.id} align={column.align}>
+                      <TableCell variant='body'  key={column.id} align={column.align}>
                         {column.format ? column.format(value) : value}
                       </TableCell>
                     )
