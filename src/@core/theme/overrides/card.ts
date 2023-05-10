@@ -3,7 +3,7 @@ import { Theme } from '@mui/material/styles'
 import { Settings } from 'src/@core/context/settingsContext'
 
 const Card = (theme: Theme) => {
-const mode = theme.palette.mode
+  const mode = theme.palette.mode
   return {
     MuiCard: {
       styleOverrides: {
@@ -45,9 +45,11 @@ const mode = theme.palette.mode
     MuiCardContent: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(5),
-          '& + .MuiCardContent-root': {
-            paddingTop: 0
+          margin: theme.spacing(5),
+          '& + .MuiCardContent-root,': {
+            paddingTop: 0,
+            background: mode == "light" ? "#fff" : "#312D4B",
+            
           },
           '&:last-of-type': {
             paddingBottom: theme.spacing(5)
@@ -55,25 +57,33 @@ const mode = theme.palette.mode
           '& + .MuiCardActions-root': {
             paddingTop: 0
           }
-        }
+        },
+        // '& .MuiCardContent-root.MuiCardActionArea-root': {
+        //   background: 'red',
+        // },
       }
     },
     MuiCardActions: {
       styleOverrides: {
         root: {
-          padding: theme.spacing(5),
+          padding: theme.spacing(),
           '&.card-action-dense': {
+
             padding: theme.spacing(0, 2.5, 2.5),
             '.MuiCard-root .MuiCardMedia-root + &': {
+  
               paddingTop: theme.spacing(2.5)
             },
             '.MuiCard-root &:first-of-type': {
+  
               paddingTop: theme.spacing(5),
               paddingBottom: theme.spacing(5),
               '& + .MuiCardContent-root': {
+    
                 paddingTop: 0
               },
               '& + .MuiCardHeader-root': {
+    
                 paddingTop: 0
               }
             }
@@ -84,7 +94,21 @@ const mode = theme.palette.mode
           }
         }
       }
-    }
+    }, 
+    MuiCardActionArea: {
+      styleOverrides: {
+        root: {          
+          '&  .MuiCardContent-root': {
+            padding: theme.spacing(10, 5),
+            borderRadius: '25px',
+          },
+          background: '#304462',
+          borderRadius:'25px',
+          padding:'20px 25px',
+          // textAlign: "center"
+          
+        }
+      }}
   }
 }
 

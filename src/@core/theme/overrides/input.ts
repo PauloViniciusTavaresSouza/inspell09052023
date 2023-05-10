@@ -3,6 +3,7 @@ import { Theme } from '@mui/material/styles'
 
 const input = (theme: Theme) => {
   return {
+ 
     MuiInputLabel: {
       styleOverrides: {
         root: {
@@ -13,6 +14,7 @@ const input = (theme: Theme) => {
     MuiInput: {
       styleOverrides: {
         root: {
+
           '&:before': {
             borderBottom: `1px solid rgba(${theme.palette.customColors.main}, 0.22)`
           },
@@ -22,12 +24,16 @@ const input = (theme: Theme) => {
           '&.Mui-disabled:before': {
             borderBottom: `1px solid ${theme.palette.text.disabled}`
           }
-        }
+        },
+        // MuiFocused: {
+        //   border: '2px solid #000'
+        // },
       }
     },
     MuiFilledInput: {
       styleOverrides: {
         root: {
+
           backgroundColor: `rgba(${theme.palette.customColors.main}, 0.04)`,
           '&:hover:not(.Mui-disabled)': {
             backgroundColor: `rgba(${theme.palette.customColors.main}, 0.08)`
@@ -55,8 +61,9 @@ const input = (theme: Theme) => {
           },
           '&.Mui-disabled .MuiOutlinedInput-notchedOutline': {
             borderColor: theme.palette.text.disabled
-          }
-        }
+          },
+
+        },
       }
     }
   }

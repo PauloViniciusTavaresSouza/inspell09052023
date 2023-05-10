@@ -2,7 +2,9 @@ export default {
   MuiPaper: {
     styleOverrides: {
       root: {
-        backgroundImage: 'none'
+        '&  .MuiPaper-root.MuiCard-root': {
+        },
+        backgroundImage: 'none',
       }
     }
   }

@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 import { styled } from '@mui/material/styles'
 import MuiCard, { CardProps } from '@mui/material/Card'
+import { CardActionArea } from '@mui/material';
 
 // ** Layout Import
 import BlankLayout from 'src/@core/layouts/BlankLayout'
@@ -27,20 +28,23 @@ import { useSettings } from 'src/@core/hooks/useSettings'
 import Snackbar from '@mui/material/Snackbar'
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import React from 'react'
+import { Settings } from 'src/@core/context/settingsContext'
 
 // ** Styled Components
 const Card = styled(MuiCard)<CardProps>(({ theme }) => ({
   [theme.breakpoints.up('sm')]: { width: '28rem' }
 }))
 
+
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
   ref,
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
-const LoginPage = () => {
+  ) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+  
+  const LoginPage = (settings: Settings) => {
+  const mode = settings.mode
 
   // ** Hook
   const router = useRouter()
@@ -95,26 +99,20 @@ const LoginPage = () => {
   return (
     infoIgateway ?
       <Box className='content-center'>
-        <Card sx={{ zIndex: 1 }}>
-          <CardContent sx={{ padding: theme => `${theme.spacing(12, 9, 7)} !important` }}>
+        <Card sx={{ zIndex: 1, background:"transparent" }}>
+            <CardActionArea>
             <Box sx={{ mb: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <Typography
-                variant='h6'
-                sx={{
-                  ml: 3,
-                  lineHeight: 1,
-                  fontWeight: 600,
-                  fontSize: '1.5rem !important'
-                }}
-              >
-                iGateway DashBoard
-              </Typography>
+           {mode == "dark" ? <img src="/images/pages/logoAzul.png" alt="" /> :  <img src="/images/pages/logoBranca.png" alt="" /> } 
             </Box>
+          <CardContent sx={{ padding: theme => `${theme.spacing(12, 9, 7)} !important,` }}>
             <Box sx={{ mb: 6 }}>
-              <Typography variant='h6' sx={{ fontWeight: 600, marginBottom: 1.5 }}>
-                Bem vindo! 👋🏻
+              <Typography variant='p' sx={{  marginBottom: 1.5 }}>
+                Bem vindo ao
               </Typography>
-              <Typography variant='body2'>Por favor, informe a chave de acesso e o CNPJ/CPF.</Typography>
+              <Typography variant='h5' sx={{ fontWeight: 600 }}>
+              iGateway Inspell
+              </Typography>
+              <Typography variant='body2'>Por favor, informe os dados para acesso</Typography>
             </Box>
             <TextField
               autoFocus
@@ -125,7 +123,7 @@ const LoginPage = () => {
               onChange={e => {
                 setAcessKey(e.target.value)
               }}
-            />
+              />
             <TextField
               fullWidth
               id='cnpjCpf'
@@ -135,15 +133,15 @@ const LoginPage = () => {
                 if (e.target.value.length==14 &&
                   validateBr.cpf(cpf(e.target.value.replaceAll('.','').replaceAll('/','')))) {
                     e.target.value = cpf(e.target.value)
-                } else {
+                  } else {
                     e.target.value = cnpj(e.target.value)
-                }
-                setCnpjCpf(e.target.value)
-              }}
-              onKeyUp={e => {
-                if (e.key=='Enter') acessar()
-              }}
-            />
+                  }
+                  setCnpjCpf(e.target.value)
+                }}
+                onKeyUp={e => {
+                  if (e.key=='Enter') acessar()
+                }}
+                />
             <Button
               fullWidth
               size='large'
@@ -151,10 +149,11 @@ const LoginPage = () => {
               sx={{ mb: 4, mt: 2 }}
               onClick={acessar}
               disabled={acessKey.length<5 || (!validateBr.cpf(cnpjCpf) && !validateBr.cnpj(cnpjCpf))}
-            >
+              >
               Acessar
             </Button>
           </CardContent>
+              </CardActionArea>
         </Card>
         <FooterIllustrationsV1 />
           <Snackbar open={openErroLogin} autoHideDuration={6000} onClose={handleClose}>
